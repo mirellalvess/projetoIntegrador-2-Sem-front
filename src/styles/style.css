@@ -232,7 +232,7 @@ main.content {
 }
 
 .tabela-despesas, .tabelaDesp {
-  background-color: #111111;
+  background-color: var(--bg-color);
 }
 
 .fav-btn:hover {
@@ -246,7 +246,7 @@ main.content {
 
 .favoritos-section {
   margin-top: 24.5px;
-  background-color: #2b2b2b;
+  background-color: var(--bg-color);
   width: 30%;
   justify-content: center;
 }
