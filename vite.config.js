@@ -1,27 +1,29 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { babel } from "@rollup/plugin-babel";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: "/projetointegrador_2m/", // <--- coloque aqui o nome do seu repositório
-  css: {
-    postcss: "./postcss.config.js", // ✅ Garante que o Vite use o PostCSS correto
-  },
-  server: {
-    port: 5173,
-    open: true, // ✅ Abre o navegador automaticamente ao rodar npm run dev
-  },
+  base: "/projetointegrador_2m/",
+
   plugins: [
-    reactRouter(),
+    react(),
     babel({
-      filter: /\.[jt]sx?$/,
-      babelConfig: {
-        presets: ["@babel/preset-typescript"], // if you use TypeScript
-        plugins: [
-          ["babel-plugin-react-compiler", ReactCompilerConfig],
-        ],
-      },
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
+      babelHelpers: "bundled",
+      presets: ["@babel/preset-typescript"],
+      plugins: [
+        ["babel-plugin-react-compiler", {}],
+      ],
     }),
   ],
+
+  css: {
+    postcss: "./postcss.config.js",
+  },
+
+  server: {
+    port: 5173,
+    open: true,
+  },
 });
