@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";   // ⬅️ IMPORTANTE
+import { useNavigate } from "react-router-dom";
 import "../styles/style.css";
 
 const TabelaDespesas = () => {
-  const navigate = useNavigate(); // ⬅️ PARA REDIRECIONAR
+  const navigate = useNavigate();
   const LS_FAV_KEY = "sof_favoritos_v1";
 
   const [dados, setDados] = useState([]);
@@ -25,8 +25,13 @@ const TabelaDespesas = () => {
   useEffect(() => {
     const carregarDados = async () => {
       try {
-        const res = await fetch("/assets/resultado.json", { cache: "no-store" });
+        // 🔥 CORREÇÃO IMPORTANTE
+        const url = `${import.meta.env.BASE_URL}assets/resultado.json`;
+
+        const res = await fetch(url, { cache: "no-store" });
+
         if (!res.ok) throw new Error(`Erro HTTP ${res.status}`);
+
         const data = await res.json();
 
         const lista = data.map((item) => {
@@ -98,7 +103,6 @@ const TabelaDespesas = () => {
 
   const favoritosArray = Object.values(favoritos);
 
-  // Totais gerais
   const totalEmpenhos = dados.reduce((s, it) => s + it.qtdEmpenhos, 0);
   const totalGeral = dados.reduce((s, it) => s + it.valorTotal, 0);
 
@@ -109,8 +113,7 @@ const TabelaDespesas = () => {
     <section className="main-container">
       {/* tabela */}
       <section className="tabela-container">
-
-      <br />
+        <br />
 
         <table className="tabela-despesas">
           <thead>
@@ -158,7 +161,7 @@ const TabelaDespesas = () => {
                   className="link-fav"
                   onClick={() =>
                     navigate("/consulta-empenhos", {
-                      state: { codOrgao: fav.codOrgao }, // ⬅️ envia o filtro
+                      state: { codOrgao: fav.codOrgao },
                     })
                   }
                 >
@@ -166,7 +169,8 @@ const TabelaDespesas = () => {
                 </button>
 
                 <button
-                  className="fav-btn fav" id="removeFav"
+                  className="fav-btn fav"
+                  id="removeFav"
                   onClick={() => alternarFavorito(fav)}
                 >
                   ★
