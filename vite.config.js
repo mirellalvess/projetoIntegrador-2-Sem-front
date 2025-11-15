@@ -13,12 +13,6 @@ export default defineConfig({
     open: true, // ✅ Abre o navegador automaticamente ao rodar npm run dev
   },
   plugins: [
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler'],
-      },
-    }),
-
     reactRouter(),
     babel({
       filter: /\.[jt]sx?$/,
