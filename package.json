@@ -1,5 +1,5 @@
 {
-  "homepage": "https://alaorjunior.github.io/projetointegrador_2m/",
+  "homepage": "https://j0li.github.io/projetoIntegrador-2-Sem-front/",
   "name": "projeto2",
   "private": true,
   "version": "0.0.0",
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.5"
