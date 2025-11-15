@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consulta Orçamentária - SOF-v4 (Protótipo)</title>
+  <script type="module" crossorigin src="/projetointegrador_2m/assets/index-DcjnB_Ii.js"></script>
+  <link rel="stylesheet" crossorigin href="/projetointegrador_2m/assets/index-DOdsH2rR.css">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <div id="root"></div>
+  </div>
+
+  <!-- VLibras Widget (oficial do Governo Federal) -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- Script principal do Vite/React -->
+</body>
+</html>
